@@ -6,6 +6,7 @@ const TaskForm = () => {
     const [task, setTask] = useState({
       title: "",
       description: "",
+      task_created_at: new Date(),
     })
     const [editing, setEditing] = useState(false)
 
@@ -48,7 +49,7 @@ const TaskForm = () => {
     const loadTask = async (id: any) => {
       const result = await fetch(`http://localhost:4000/tasks/${id}`)
       const data = await result.json()
-      setTask({title: data.title, description: data.description})
+      setTask({title: data.title, description: data.description, task_created_at: data.task_created_at})
       setEditing(true)
     } 
 
