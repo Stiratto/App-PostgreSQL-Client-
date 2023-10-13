@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Routes, Route} from "react-router-dom"
+import Navbar from "./components/Navbar";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
+import { Container, Menu } from "@mui/material";
+import React from "react"
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <Navbar/>
+        <Container>
+          <Routes>
+            <Route path="/" element={<TaskList/>}/>
+            <Route path="/tasks/new" element={<TaskForm/>}/>
+            <Route path="/tasks/:id/edit" element={<TaskForm/>}/>
+          </Routes>
+
+        </Container>
+     
     </div>
+ 
   );
 }
 
