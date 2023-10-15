@@ -20,7 +20,7 @@ const TaskForm = () => {
       setLoading(true)
 
       if (editing){
-        await fetch(`http://localhost:4000/tasks/${params.id}`, {
+        await fetch(`https://app-postgresql-server.onrender.com/tasks/${params.id}`, {
           method: 'PUT',
           headers: {
             "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const TaskForm = () => {
           body: JSON.stringify(task),
         })
       }else{
-        await fetch('http://localhost:4000/tasks', {
+        await fetch('https://app-postgresql-server.onrender.com/tasks', {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const TaskForm = () => {
     }
 
     const loadTask = async (id: any) => {
-      const result = await fetch(`http://localhost:4000/tasks/${id}`)
+      const result = await fetch(`https://app-postgresql-server.onrender.com/tasks/${id}`)
       const data = await result.json()
       setTask({title: data.title, description: data.description, task_created_at: data.task_created_at})
       setEditing(true)

@@ -19,7 +19,7 @@ const TaskList = () => {
   }
   const handleDelete = async (id: number) => {
     try{
-      await fetch(`http://localhost:4000/tasks/${id}`, {
+      await fetch(`https://app-postgresql-server.onrender.com/tasks/${id}`, {
         method: 'DELETE',
         headers: {'Content-Type':'application/json'}
       })
