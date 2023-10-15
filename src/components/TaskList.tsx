@@ -13,7 +13,7 @@ const TaskList = () => {
   const dateFormat = "EEEE, h:mm a";
 
   const loadTasks = async () => {
-    const result = await fetch('http://localhost:4000/tasks')
+    const result = await fetch('https://app-postgresql-server.onrender.com/tasks')
     const data = await result.json()
     setTasks(data)
   }
